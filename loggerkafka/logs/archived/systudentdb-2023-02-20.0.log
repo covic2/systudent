@@ -1,0 +1,7 @@
+2023-02-20 19:53:46,704 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 19:54:11,948 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 20:02:49,478 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 20:21:48,484 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 20:40:18,952 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 20:40:33,401 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test
+2023-02-20 20:41:48,068 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#1-0-C-1] [ModuleDB][CCStudent] message test

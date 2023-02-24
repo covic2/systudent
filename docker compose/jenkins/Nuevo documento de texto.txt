@@ -1,0 +1,5 @@
+docker-compose up -d
+
+6d33a7ab8adb43c99aa05c6579d1c7ed
+
+admin user and password jenkins

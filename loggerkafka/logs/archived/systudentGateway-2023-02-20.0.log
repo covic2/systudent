@@ -1,0 +1,5 @@
+2023-02-20 19:52:59,197 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] "[gateway][GatewayConfig] init gateway http://docker-systudent-db:8086"
+2023-02-20 19:55:16,291 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] "[gateway][GatewayConfig] init gateway http://docker-systudent-db:8086"
+2023-02-20 20:01:20,110 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] "[gateway][GatewayConfig] init gateway http://docker-systudent-db:8086"
+2023-02-20 20:02:36,616 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] "[gateway][GatewayConfig] init gateway http://docker-systudent-db:8086"
+2023-02-20 20:21:38,246 INFO com.systudent.component.LoggerConsumer [org.springframework.kafka.KafkaListenerEndpointContainer#0-0-C-1] "[gateway][GatewayConfig] init gateway http://docker-systudent-db:8086"
