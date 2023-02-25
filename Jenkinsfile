@@ -11,7 +11,7 @@ node {
 	     }
 	    stage('Build Project') {
 	      // build project via maven
-	      bat "cd systudent-db & mvn install"
+	      bat "cd systudent-db & ${MAVEN_HOME}/bin/mvn install"
 	    }
 	    stage('Build docker') {
 	         bat "cd systudent-db & docker build . -t docker-springboot"
