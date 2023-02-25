@@ -18,7 +18,7 @@ node {
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
-	          bat "docker run -p 8761:8761 --name docker-systudent-discovery --link kafka -d docker-systudent-discovery"
+	          bat "docker run -p 8761:8761 --name docker-systudent-discovery --link kafka:wurstmeister/kafka -d docker-systudent-discovery"
 	    }
 	}catch(e){
 	    currentBuild.result = "FAILED"
