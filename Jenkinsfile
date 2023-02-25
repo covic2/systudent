@@ -10,8 +10,7 @@ node {
 	            branch: 'main'
 	     }
 	    stage('Build docker') {
-		 bat "cd systudent-db"
-	         bat "docker build . -t docker-springboot"
+	         bat "cd systudent-db & docker build . -t docker-springboot"
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
