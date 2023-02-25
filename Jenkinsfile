@@ -11,10 +11,10 @@ node {
 	     }
 	    stage('Build Project') {
 	      // build project via maven
-	      bat "cd systudent-db & ${MAVEN_HOME}/bin/mvn install"
+	      bat "cd systudent-discovery & ${MAVEN_HOME}/bin/mvn install"
 	    }
 	    stage('Build docker') {
-	         bat "cd systudent-db & docker build . -t docker-systudent-discovery"
+	         bat "cd systudent-discovery & docker build . -t docker-systudent-discovery"
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
