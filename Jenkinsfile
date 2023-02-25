@@ -9,6 +9,10 @@ node {
 	            credentialsId: 'covic2',
 	            branch: 'main'
 	     }
+	    stage('Build Project') {
+	      // build project via maven
+	      bat "'${mvnHome}/bin/mvn' install"
+	    }
 	    stage('Build docker') {
 	         bat "cd systudent-db & docker build . -t docker-springboot"
 	    }
