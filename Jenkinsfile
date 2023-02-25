@@ -10,12 +10,12 @@ node {
 	            branch: 'main'
 	     }
 	    stage('Build docker') {
-		 sh "cd systudent-db"
-	         sh "docker build . -t docker-springboot"
+		 bat "cd systudent-db"
+	         bat "docker build . -t docker-springboot"
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
-	          sh "docker run -p 8086:8086 --name docker-stest --link mysql-standalone:mysql -d docker-stest"
+	          bat "docker run -p 8086:8086 --name docker-stest --link mysql-standalone:mysql -d docker-stest"
 	    }
 	}catch(e){
 	    currentBuild.result = "FAILED"
