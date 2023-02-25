@@ -10,7 +10,8 @@ node {
 	            branch: 'main'
 	     }
 	    stage('Build docker') {
-	         dockerImage = docker.build("systudent-db/docker-stest")
+		 sh "cd systudent-db"
+	         dockerImage = docker.build("docker-stest")
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
