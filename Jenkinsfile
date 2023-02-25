@@ -14,11 +14,11 @@ node {
 	      bat "cd systudent-db & ${MAVEN_HOME}/bin/mvn install"
 	    }
 	    stage('Build docker') {
-	         bat "cd systudent-db & docker build . -t docker-springboot"
+	         bat "cd systudent-db & docker build . -t docker-systudent-discovery"
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
-	          bat "docker run -p 8086:8086 --name docker-stest --link mysql-standalone:mysql -d docker-stest"
+	          bat "docker run -p 8761:8761 --name docker-systudent-discovery --link kafka -d docker-systudent-discovery"
 	    }
 	}catch(e){
 	    currentBuild.result = "FAILED"
