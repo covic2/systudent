@@ -11,7 +11,7 @@ node {
 	     }
 	    stage('Build docker') {
 		 sh "cd systudent-db"
-	         dockerImage = docker.build("docker-stest")
+	         sh "docker build . -t docker-springboot"
 	    }
 	    stage('Deploy docker'){
 	          echo "Docker Image Tag Name: ${dockerImageTag}"
