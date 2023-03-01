@@ -1,0 +1,29 @@
+
+node {
+    def dockerImageTag = "docker-stest"
+	try{
+	    stage('Clone Repo') {
+	        // for display purposes
+	        // Get some code from a GitHub repository
+	        git url: 'https://github.com/covic2/systudent.git',
+	            credentialsId: 'covic2',
+	            branch: 'main'
+	     }
+	    stage('Build Project') {
+	      // build project via maven
+	      bat "cd systudent-loggerkafka & ${MAVEN_HOME}/bin/mvn install"
+	    }
+	    stage('Build docker') {
+	         bat "cd systudent-loggerkafka & docker build . -t docker-loggerkafka"
+	    }
+	    stage('Deploy docker'){
+	          echo "Docker Image Tag Name: ${dockerImageTag}"
+	          bat "docker run -p 9090:9090 --name docker-loggerkafka --link kafka:kafka --link docker-systudent-discovery -d docker-loggerkafka"
+	    }
+	}catch(e){
+	    currentBuild.result = "FAILED"
+	    throw e
+	}finally{
+	
+ 	}
+}
