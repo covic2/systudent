@@ -39,7 +39,7 @@ import com.systudent.service.CSStudent;
 @ExtendWith(MockitoExtension.class)
 public class CCStudentMockTest {
 	
-    //private MockMvc mockMvc;
+    private MockMvc mockMvc;
     
     @Mock
 	private DAOStudent daoStudentMock;
