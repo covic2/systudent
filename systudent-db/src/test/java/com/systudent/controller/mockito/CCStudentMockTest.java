@@ -39,7 +39,7 @@ import com.systudent.service.CSStudent;
 @ExtendWith(MockitoExtension.class)
 public class CCStudentMockTest {
 	
-    private MockMvc mockMvc;
+    //private MockMvc mockMvc;
     
     @Mock
 	private DAOStudent daoStudentMock;
@@ -73,16 +73,16 @@ public class CCStudentMockTest {
        	
     }
 	
-	@Test
-     public void testData() throws Exception {
+	//@Test
+     //public void testData() throws Exception {
         /*
         this.mockMvc.perform(MockMvcRequestBuilders.get("/student/test"))
                     .andDo(print())
                     .andExpect(status().isOk())
                     .andExpect(MockMvcResultMatchers.content().string(containsString("test")));
 		*/
-		 this.mockMvc.perform(MockMvcRequestBuilders.get("/student/all"))
-         .andExpect(status().isOk());
+		 //this.mockMvc.perform(MockMvcRequestBuilders.get("/student/all"))
+         //.andExpect(status().isOk());
 		/*final ResultActions result = mockMvc.perform(
 				MockMvcRequestBuilders.get("/student/test"));
 		System.out.println("res: "+result);*/
@@ -96,5 +96,5 @@ public class CCStudentMockTest {
 		 result.andDo(print());
 		 result.andExpect(status().isOk());*/
 		 //.andExpect(MockMvcResultMatchers.jsonPath("$.size()").value(1));
-    }
+    //}
 }

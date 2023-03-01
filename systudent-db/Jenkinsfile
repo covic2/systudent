@@ -9,6 +9,7 @@ node {
 	            credentialsId: 'covic2',
 	            branch: 'main'
 	     }
+	     
 	    stage('Build docker') {
 	         dockerImage = docker.build("docker-stest")
 	    }
