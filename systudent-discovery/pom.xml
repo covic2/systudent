@@ -11,7 +11,7 @@
 	<groupId>com.systudent.principal</groupId>
 	<artifactId>systudent-discovery</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>systudent-discovery</name>
 	<description>discovery eureka</description>
 	<properties>
