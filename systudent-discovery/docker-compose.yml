@@ -1,0 +1,13 @@
+version: '1'
+services:
+  systudent-discovery:
+    build: .
+    container_name: systudent-discovery
+    image: systudent-discovery
+    ports:
+      - "8761:8761"
+    networks:
+      - custom-red
+      
+networks:
+  custom-red:
