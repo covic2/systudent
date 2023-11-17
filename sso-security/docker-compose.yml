@@ -1,0 +1,34 @@
+version: '1'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-sso
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: sso
+      MYSQL_PASSWORD: admin
+    ports:
+      - "3307:3306"
+    networks:
+      - custom-red  
+      
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379:6379" 
+    networks:
+      - custom-red  
+ 
+ 
+  systudent-db:
+    build: .
+    container_name: sso-security
+    image: sso-security
+    ports:
+      - "9099:9099"
+    networks:
+      - custom-red
+
+networks:
+  custom-red:
+    external: true

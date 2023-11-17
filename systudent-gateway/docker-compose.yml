@@ -1,0 +1,20 @@
+version: '1'
+services:
+  loggerkafka:
+    build: .
+    container_name: systudent-gateway
+    image: systudent-gateway
+    ports:
+      - "8092:8092"
+    networks:
+      - custom-red
+      
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://systudent-discovery:8761/eureka
+      SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+
+networks:
+  custom-red:
+    external: true
+      

@@ -1,0 +1,83 @@
+version: '1'
+services:
+  loggerkafka:
+    build: .
+    container_name: loggerkafka
+    image: loggerkafka
+    volumes:
+      - spring-logs:/var/log/spring-boot
+    ports:
+      - "9090:9090"
+    networks:
+      - custom-red
+    links:
+      - kafka
+      - zookeeper
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://docker-systudent-discovery:8761/eureka
+      SPRING_KAFKA_PRODUCER_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_KAFKA_CONSUMER_BOOTSTRAP_SERVERS: kafka:9092
+  zookeeper:
+    image: wurstmeister/zookeeper
+    networks:
+      - custom-red
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    networks:
+      - custom-red
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      #KAFKA_ADVERTISED_HOST_NAME: localhost
+      #KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      
+      
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+    environment:
+      - discovery.type=single-node
+    networks:
+      - custom-red
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.0
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - custom-red
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+      
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.10.0
+    volumes:
+      - ./logstash/config:/usr/share/logstash/config
+      - spring-logs:/var/log/spring-boot
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+    command: logstash -f /usr/share/logstash/config/logstash.conf
+    networks:
+      - custom-red
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+      
+
+networks:
+  custom-red:
+    external: true
+volumes:
+  elasticsearch-data:
+  spring-logs:
